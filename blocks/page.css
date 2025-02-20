@@ -1,0 +1,14 @@
+.page__headliner {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+
+.page__logo {
+  height: 26px;
+  width: 94px;
+}
