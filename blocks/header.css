@@ -1,3 +1,81 @@
 .header {
   background-color: #fcf5e5;
+  font-family: "Poppins";
+  width: 100%;
+}
+
+.header__text {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  justify-content: center;
+}
+
+.header__info {
+  margin: 0 80px;
+  padding: 34px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: #21212166 1px solid;
+}
+
+.header__card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.header__image {
+  height: 190px;
+  width: 190px;
+  border-radius: 8px;
+}
+.header__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 190px;
+}
+
+.header__name {
+  margin: 0;
+}
+.header__title {
+  margin: 0;
+  padding: 12px 323px 0 0;
+  color: #212121;
+}
+
+.header__edit-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 20px;
+  color: #212121;
+}
+
+.header__edit-icon {
+  padding-right: 8px;
+}
+.header__post-button {
+  background-color: #212121;
+  color: #fff;
+  border: none;
+  display: flex;
+  margin-bottom: 20px;
+  padding: 18px 24px 18px;
+  border-radius: 8px;
+  width: 149px;
+  height: 52px;
+  align-self: flex-end;
+}
+
+.header__post-icon {
+  color: #fff;
+  width: 12px;
+  height: 12px;
+  align-self: center;
+  padding: 2px 8px;
 }
