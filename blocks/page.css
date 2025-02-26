@@ -1,12 +1,13 @@
 .page {
   background-color: #fcf5e5;
+  font-family: "Poppins";
 }
 
 .page__section {
-  max-width: 850px;
+  max-width: 1280px;
+  padding: 0 16px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 16px;
 }
 
 .page__headliner {
@@ -22,4 +23,10 @@
 .page__logo {
   height: 26px;
   width: 94px;
+}
+
+@media screen and (max-width: 1295px) {
+  .page__section {
+    max-width: 846px;
+  }
 }

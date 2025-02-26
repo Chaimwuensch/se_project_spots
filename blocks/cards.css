@@ -1,14 +1,10 @@
-.main {
-  font-family: "Poppins";
-  background-color: #fcf5e5;
-}
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 413px);
   grid-gap: 20px;
   margin: 0 auto;
   border-bottom: #21212166 1px solid;
-  width: 1280px;
+  max-width: 1280px;
 }
 
 .card__content {
