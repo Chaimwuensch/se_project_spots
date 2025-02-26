@@ -1,0 +1,59 @@
+.card__content {
+  height: 445px;
+  width: 413px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.card__image {
+  height: 413px;
+  width: 413px;
+  border-radius: 8px;
+}
+
+.card__info {
+  display: flex;
+  justify-content: space-between;
+}
+.card__title {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+}
+.card__icon {
+  opacity: 40%;
+}
+
+@media screen and (max-width: 1295px) {
+  .card__content {
+    height: 445px;
+    width: 413px;
+  }
+  .card__image {
+    height: 413px;
+    width: 413px;
+  }
+}
+
+@media screen and (max-width: 861px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 288px;
+    column-gap: 20px;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .card__content {
+    height: 318px;
+    width: 288px;
+    margin: 0 auto;
+  }
+  .card__image {
+    height: 288px;
+    width: 100%;
+  }
+}
