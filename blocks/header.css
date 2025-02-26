@@ -1,7 +1,6 @@
 .header {
   background-color: #fcf5e5;
   font-family: "Poppins";
-  width: 100%;
 }
 
 .header__text {
@@ -12,11 +11,12 @@
 }
 
 .header__info {
-  margin: 0 80px;
   padding: 34px 0;
   display: flex;
+  margin: 0 auto;
   justify-content: space-between;
   border-bottom: #21212166 1px solid;
+  max-width: 1280px;
 }
 
 .header__card {
@@ -35,7 +35,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 190px;
 }
 
 .header__name {
@@ -43,8 +42,8 @@
 }
 .header__title {
   margin: 0;
-  padding: 12px 323px 0 0;
-  color: #212121;
+  padding-top: 12px;
+  color: #212121b2;
 }
 
 .header__edit-button {
@@ -53,11 +52,12 @@
   display: flex;
   justify-content: flex-start;
   padding-left: 20px;
-  color: #212121;
+  color: #212121b2;
 }
 
 .header__edit-icon {
   padding-right: 8px;
+  color: #212121b2;
 }
 .header__post-button {
   background-color: #212121;
@@ -70,6 +70,8 @@
   width: 149px;
   height: 52px;
   align-self: flex-end;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .header__post-icon {
@@ -78,4 +80,51 @@
   height: 12px;
   align-self: center;
   padding: 2px 8px;
+}
+
+@media screen and (max-width: 620px) {
+  .header {
+    margin: 0;
+  }
+  .header__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+  }
+  .header__description {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-start;
+  }
+
+  .header__edit-button {
+    padding: 32px 0 20px;
+  }
+  .header__name {
+    font-size: 20px;
+    padding-top: 12px;
+  }
+  .header__title {
+    padding-top: 6px;
+    text-align: center;
+    padding: 0;
+    font-size: 16px;
+  }
+  .header__post-button {
+    width: 100%;
+    max-width: 288px;
+    align-self: center;
+  }
+  .header__image {
+    height: 80px;
+    width: 80px;
+  }
 }
