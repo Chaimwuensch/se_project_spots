@@ -20,11 +20,6 @@
   margin: 0 auto;
 }
 
-.page__logo {
-  height: 26px;
-  width: 94px;
-}
-
 @media screen and (max-width: 1295px) {
   .page__section {
     max-width: 846px;

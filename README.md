@@ -23,3 +23,17 @@ Good luck and have fun!
 **Project look**
 
 - [Click to see how it looks](https://www.dropbox.com/scl/fi/e0tqt0955d03kpg3e44h4/project-video.mov?rlkey=rosqm5fu3i8qv359dg3k2dag6&st=mmwcuiko&dl=0)
+
+**Tech stack**
+
+HTML
+CSS
+Responsive web design
+
+**Deployment**
+
+This project is deployed to Github Pages
+
+-Deployment link
+
+[Link](https://github.com/Chaimwuensch/se_project_spots)
