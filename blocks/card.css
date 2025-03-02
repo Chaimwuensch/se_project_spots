@@ -33,6 +33,10 @@
   opacity: 40%;
 }
 
+.card__icon:hover {
+  opacity: 100%;
+}
+
 @media screen and (max-width: 1295px) {
   .card__content {
     height: 445px;
