@@ -41,11 +41,19 @@
   font-weight: 500;
   font-size: 32px;
   line-height: 32px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 420px;
 }
 .header__title {
   margin: 0;
   padding-top: 12px;
   color: #212121b2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 97px;
 }
 
 .header__edit-button {
@@ -63,7 +71,7 @@
 }
 .header__post-button {
   background-color: #212121;
-  color: #fff;
+  color: #fcf5e5;
   border: none;
   display: flex;
   margin-bottom: 20px;
