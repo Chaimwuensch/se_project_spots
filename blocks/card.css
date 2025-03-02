@@ -31,6 +31,8 @@
 }
 .card__icon {
   opacity: 40%;
+  border: none;
+  background: none;
 }
 
 .card__icon:hover {
