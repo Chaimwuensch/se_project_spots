@@ -5,6 +5,7 @@
   white-space: nowrap;
   overflow: hidden;
   padding: 20px 0;
+  margin-bottom: 40px;
 }
 
 .card__image {
@@ -36,6 +37,7 @@
   .card__content {
     height: 445px;
     width: 413px;
+    margin-bottom: 40px;
   }
   .card__image {
     height: 413px;
@@ -44,18 +46,11 @@
 }
 
 @media screen and (max-width: 861px) {
-  .cards {
-    display: grid;
-    grid-template-columns: 288px;
-    column-gap: 20px;
-    justify-content: center;
-    width: 100%;
-    margin: 0 auto;
-  }
   .card__content {
     height: 318px;
     width: 288px;
     margin: 0 auto;
+    margin-bottom: 40px;
   }
   .card__image {
     height: 288px;
