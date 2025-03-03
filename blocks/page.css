@@ -10,16 +10,6 @@
   margin-right: auto;
 }
 
-.page__headliner {
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 10px 0;
-  margin: 0 auto;
-}
-
 @media screen and (max-width: 1295px) {
   .page__section {
     max-width: 846px;
