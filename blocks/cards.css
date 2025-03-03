@@ -12,12 +12,10 @@
   .cards {
     grid-template-columns: repeat(2, 413px);
     justify-content: center;
-    width: auto;
   }
 }
 @media screen and (max-width: 861px) {
   .cards {
     grid-template-columns: 288px;
-    width: 100%;
   }
 }

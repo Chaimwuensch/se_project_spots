@@ -13,7 +13,6 @@
 .profile__info {
   padding: 34px 0;
   display: flex;
-  margin: 0 auto;
   justify-content: space-between;
   border-bottom: #21212166 1px solid;
 }
@@ -155,7 +154,7 @@
   .profile__post-button {
     width: 100%;
     max-width: 288px;
-    align-self: center;
+    margin: 0 auto;
   }
   .profile__image {
     height: 80px;
