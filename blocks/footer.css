@@ -1,11 +1,13 @@
 .footer {
   background-color: #fcf5e5;
   font-family: "Poppins";
-  width: 100%;
+  width: 1280px;
   font-weight: 400;
   font-size: 16px;
   line-height: 16px;
   opacity: 70%;
+  border-top: 1px #21212166 solid;
+  margin: 0 auto;
 }
 
 .footer__text {
@@ -15,4 +17,18 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 16px;
+}
+
+@media screen and (max-width: 1295px) {
+  .footer {
+    margin: 0 auto;
+    width: 846px;
+  }
+}
+
+@media screen and (max-width: 861px) {
+  .footer {
+    margin: 0 auto;
+    width: 288px;
+  }
 }

@@ -3,13 +3,12 @@
   grid-template-columns: repeat(3, 413px);
   gap: 40px 20px;
   margin: 20px auto 0;
-  border-bottom: #21212166 1px solid;
-  max-width: 1280px;
   padding-bottom: 20px;
 }
 
 @media screen and (max-width: 1295px) {
   .cards {
+    padding-top: 0px;
     grid-template-columns: repeat(2, 413px);
     justify-content: center;
   }
@@ -17,5 +16,7 @@
 @media screen and (max-width: 861px) {
   .cards {
     grid-template-columns: 288px;
+    justify-content: center;
+    gap: 20px;
   }
 }

@@ -23,18 +23,19 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 288px;
 }
 .card__like-icon {
   opacity: 40%;
   border: none;
   margin: 12px 0 0;
+  background-color: transparent;
   background-image: url("../images/Like_Icon.svg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  width: 23px;
+  flex: 0 0 23px;
   height: 20px;
+  cursor: pointer;
 }
 
 .card__like-icon:hover {
@@ -47,8 +48,8 @@
     width: 413px;
   }
   .card__like-icon {
-    width: 20;
-    height: 18;
+    flex-basis: 20px;
+    height: 18px;
   }
 }
 
@@ -60,9 +61,5 @@
   .card__title {
     font-size: 16px;
     line-height: 16px;
-  }
-  .card__like-icon {
-    width: 20;
-    height: 18;
   }
 }
