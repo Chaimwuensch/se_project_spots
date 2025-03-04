@@ -36,4 +36,4 @@ This project is deployed to Github Pages
 
 -Deployment link
 
-[Link](https://github.com/Chaimwuensch/se_project_spots)
+[Link](https://chaimwuensch.github.io/se_project_spots/)
