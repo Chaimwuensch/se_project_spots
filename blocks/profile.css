@@ -80,12 +80,8 @@
 .profile__edit-icon {
   padding-right: 8px;
   color: #212121;
-  opacity: 70%;
 }
 
-.profile__edit-icon:hover {
-  opacity: 100%;
-}
 .profile__post-button {
   background-color: #212121;
   color: #fcf5e5;
@@ -118,6 +114,7 @@
     width: 288px;
   }
   .profile__info {
+    padding: 20px 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
