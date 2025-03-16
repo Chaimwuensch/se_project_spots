@@ -70,4 +70,3 @@ for (let i = 0; i < initialCards.length; i++) {
   const positioning = getCard(initialCards[i]);
   allCards.prepend(positioning);
 }
-`
