@@ -38,13 +38,15 @@ const editModalCloseButton =
 const allCards = document.querySelector(".cards");
 
 function getCard(data) {
-  const card = cardTemplate.content
-    .querySelector(".card__template")
-    .cloneNode(true);
+  const card = cardTemplate.content.querySelector(".card").cloneNode(true);
   const cardName = card.querySelector(".card__title");
+  const cardImage = card.querySelector(".card__image");
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
   cardName.textContent = data.name;
   return card;
 }
+
 function openModal() {
   profileInputName.value = profileName.textContent;
   profileInputTitle.value = profileTitle.textContent;
