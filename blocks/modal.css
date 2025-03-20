@@ -42,6 +42,7 @@
   opacity: 0.4;
   cursor: pointer;
   color: #212121;
+  transition: background-color 0.3s;
 }
 
 .modal__close-btn:hover {
