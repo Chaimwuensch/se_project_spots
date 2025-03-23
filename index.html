@@ -47,6 +47,7 @@
         <section class="cards page__section">
           <template id="card__template">
             <li class="card">
+              <button type="button" class="card__delete"></button>
               <img class="card__image" src="" alt="" />
               <div class="card__info">
                 <p class="card__title"></p>
@@ -92,11 +93,11 @@
           </form>
         </div>
       </div>
-      <div class="modal modal_opened" id="add-card-modal">
+      <div class="modal" id="add-card-modal">
         <div class="modal__container">
           <button class="modal__close-btn" type="button"></button>
           <h2 class="modal__title">New post</h2>
-          <form name="edit-profile" class="modal__form">
+          <form name="add-card" class="modal__form">
             <label for="add-card-name" class="modal__label">
               Image link
               <input
@@ -119,6 +120,13 @@
             </label>
             <button class="modal__submit-btn" type="submit">Save</button>
           </form>
+        </div>
+      </div>
+      <div class="modal" id="preview-modal">
+        <div class="modal__container modal__container_preview">
+          <button class="modal_preview__close-btn" type="button"></button>
+          <img class="modal__preview-image" src="#" alt="" />
+          <p class="modal__preview-title"></p>
         </div>
       </div>
     </div>
