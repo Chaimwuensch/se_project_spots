@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>spots</title>
-    <link type="text/css" rel="stylesheet" href="pages/index.css" />
+    <link type="text/css" rel="stylesheet" href="../pages/index.css" />
   </head>
   <body>
     <div class="page">
@@ -45,6 +45,7 @@
           </div>
         </section>
         <section class="cards page__section">
+          <ul class="cards__list"></ul>
           <template id="card__template">
             <li class="card">
               <button type="button" class="card__delete"></button>
@@ -102,20 +103,20 @@
               Image link
               <input
                 id="add-card-name"
-                type="url"
+                type="text"
                 class="modal__input"
-                name="link"
-                placeholder="Paste a link to the picture"
+                name="card-name"
+                placeholder="Type your caption"
               />
             </label>
             <label for="add-card-link" class="modal__label">
               Caption
               <input
                 id="add-card-link"
-                type="text"
+                type="url"
                 class="modal__input"
-                name="card-name"
-                placeholder="Type your caption"
+                name="link"
+                placeholder="Paste a link to the picture"
               />
             </label>
             <button class="modal__submit-btn" type="submit">Save</button>
@@ -130,6 +131,6 @@
         </div>
       </div>
     </div>
-    <script defer src="./scripts/script.js"></script>
+    <script defer src="/scripts/script.js"></script>
   </body>
 </html>

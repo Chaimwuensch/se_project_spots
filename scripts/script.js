@@ -41,7 +41,7 @@ const cardForm = editCardModal.querySelector(".modal__form");
 const cardTemplate = document.querySelector("#card__template");
 const editModalCloseButton =
   editProfileModal.querySelector(".modal__close-btn");
-const cardSection = document.querySelector(".cards");
+const cardSection = document.querySelector(".cards__list");
 const editCardCloseButton = editCardModal.querySelector(".modal__close-btn");
 const cardNameInput = editCardModal.querySelector("#add-card-name");
 const cardLinkInput = editCardModal.querySelector("#add-card-link");
@@ -76,7 +76,9 @@ function openPreviewModal(data) {
   openModal(previewModal);
 }
 
-const previewModalCloseButton = previewModal.querySelector(".modal__close-btn");
+const previewModalCloseButton = previewModal.querySelector(
+  ".modal_preview__close-btn"
+);
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
 });
@@ -129,5 +131,5 @@ cardForm.addEventListener("submit", handleAddCardForm);
 
 initialCards.forEach((item) => {
   const positioning = getCard(item);
-  cardSection.prepend(positioning);
+  cardSection.append(positioning);
 });

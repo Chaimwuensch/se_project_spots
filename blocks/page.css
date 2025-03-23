@@ -1,6 +1,10 @@
 .page {
   background-color: #fcf5e5;
   font-family: "Poppins";
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .page__section {

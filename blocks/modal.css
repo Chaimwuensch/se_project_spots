@@ -131,14 +131,18 @@
 
 .modal_preview__close-btn {
   position: absolute;
-  top: -40px;
   right: -40px;
   width: 32px;
   height: 32px;
   background-color: transparent;
   padding: 0;
   border: none;
-  opacity: 1;
+  background-image: url("../images/close.svg");
+  cursor: pointer;
+}
+
+.modal_preview__close-btn:hover {
+  background-image: url("../images/close_hover.svg");
 }
 
 @media screen and (max-width: 861px) {
