@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>spots</title>
-    <link type="text/css" rel="stylesheet" href="../pages/index.css" />
+    <link type="text/css" rel="stylesheet" href="./pages/index.css" />
   </head>
   <body>
     <div class="page">
@@ -52,11 +52,7 @@
               <img class="card__image" src="" alt="" />
               <div class="card__info">
                 <p class="card__title"></p>
-                <button
-                  type="button"
-                  class="card__like-icon"
-                  type="button"
-                ></button>
+                <button type="button" class="card__like-icon"></button>
               </div>
             </li>
           </template>
@@ -102,21 +98,21 @@
             <label for="add-card-name" class="modal__label">
               Image link
               <input
-                id="add-card-name"
-                type="text"
+                type="url"
+                name="card-url"
                 class="modal__input"
-                name="card-name"
-                placeholder="Type your caption"
+                placeholder="Paste a link to the picture"
+                required
               />
             </label>
             <label for="add-card-link" class="modal__label">
               Caption
               <input
-                id="add-card-link"
-                type="url"
+                type="text"
+                name="card-name"
                 class="modal__input"
-                name="link"
-                placeholder="Paste a link to the picture"
+                placeholder="Type your caption"
+                required
               />
             </label>
             <button class="modal__submit-btn" type="submit">Save</button>
@@ -125,12 +121,15 @@
       </div>
       <div class="modal" id="preview-modal">
         <div class="modal__container modal__container_preview">
-          <button class="modal_preview__close-btn" type="button"></button>
+          <button
+            class="modal__close-btn modal__close-btn_type_preview"
+            type="button"
+          ></button>
           <img class="modal__preview-image" src="#" alt="" />
           <p class="modal__preview-title"></p>
         </div>
       </div>
     </div>
-    <script defer src="/scripts/script.js"></script>
+    <script defer src="scripts/script.js"></script>
   </body>
 </html>
