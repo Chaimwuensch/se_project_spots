@@ -52,7 +52,7 @@
               <img class="card__image" src="" alt="" />
               <div class="card__info">
                 <p class="card__title"></p>
-                <button type="button" class="card__like-icon"></button>
+                <button type="button" class="card__like-icon_active"></button>
               </div>
             </li>
           </template>
@@ -66,7 +66,7 @@
           <button class="modal__close-btn" type="button"></button>
           <h2 class="modal__title">Edit profile</h2>
           <form name="edit-profile" class="modal__form">
-            <label for="name" class="modal__label">
+            <label class="modal__label">
               Name
               <input
                 id="name"
@@ -76,7 +76,7 @@
                 placeholder="Type your name"
               />
             </label>
-            <label for="description" class="modal__label">
+            <label class="modal__label">
               Description
               <input
                 id="description"
@@ -95,20 +95,22 @@
           <button class="modal__close-btn" type="button"></button>
           <h2 class="modal__title">New post</h2>
           <form name="add-card" class="modal__form">
-            <label for="add-card-name" class="modal__label">
+            <label class="modal__label">
               Image link
               <input
                 type="url"
+                id="add-card-link"
                 name="card-url"
                 class="modal__input"
                 placeholder="Paste a link to the picture"
                 required
               />
             </label>
-            <label for="add-card-link" class="modal__label">
+            <label class="modal__label">
               Caption
               <input
                 type="text"
+                id="add-card-name"
                 name="card-name"
                 class="modal__input"
                 placeholder="Type your caption"
@@ -120,7 +122,7 @@
         </div>
       </div>
       <div class="modal" id="preview-modal">
-        <div class="modal__container modal__container_preview">
+        <div class="modal__container-preview">
           <button
             class="modal__close-btn modal__close-btn_type_preview"
             type="button"

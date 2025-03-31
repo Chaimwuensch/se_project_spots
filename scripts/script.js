@@ -49,7 +49,7 @@ function getCard(data) {
   const card = cardTemplate.content.querySelector(".card").cloneNode(true);
   const cardName = card.querySelector(".card__title");
   const cardImage = card.querySelector(".card__image");
-  const cardLikeIcon = card.querySelector(".card__like-icon");
+  const cardLikeIcon = card.querySelector(".card__like-icon_active");
   const deleteButton = card.querySelector(".card__delete");
 
   cardImage.src = data.link;
@@ -129,8 +129,6 @@ editCardCloseButton.addEventListener("click", () => {
 });
 
 newPostButton.addEventListener("click", () => {
-  profileInputName.value = profileName.textContent;
-  profileInputTitle.value = profileTitle.textContent;
   openModal(editCardModal);
 });
 

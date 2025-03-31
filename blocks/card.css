@@ -29,7 +29,7 @@
   white-space: nowrap;
   overflow: hidden;
 }
-.card__like-icon {
+.card__like-icon_active {
   opacity: 40%;
   border: none;
   margin: 12px 0 0;
