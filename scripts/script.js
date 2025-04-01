@@ -64,7 +64,7 @@ function getCard(data) {
   });
 
   cardLikeIcon.addEventListener("click", () => {
-    cardLikeIcon.classList.toggle("card__liked");
+    cardLikeIcon.classList.toggle("card__like-icon_active");
   });
   return card;
 }

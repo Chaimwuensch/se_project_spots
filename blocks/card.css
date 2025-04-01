@@ -47,12 +47,12 @@
   opacity: 100%;
 }
 
-.card__liked {
+.card__like-icon_active {
   background-image: url("../images/Liked.svg");
   opacity: 100%;
 }
 
-.card__liked:hover {
+.card__like-icon_active:hover {
   background-image: url("../images/Liked_hover.svg");
 }
 
