@@ -29,7 +29,7 @@
   white-space: nowrap;
   overflow: hidden;
 }
-.card__like-icon_active {
+.card__like-icon {
   opacity: 40%;
   border: none;
   margin: 12px 0 0;
@@ -43,7 +43,7 @@
   cursor: pointer;
 }
 
-.card__like-icon_active {
+.card__like-icon:hover {
   opacity: 100%;
 }
 

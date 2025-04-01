@@ -49,7 +49,7 @@ function getCard(data) {
   const card = cardTemplate.content.querySelector(".card").cloneNode(true);
   const cardName = card.querySelector(".card__title");
   const cardImage = card.querySelector(".card__image");
-  const cardLikeIcon = card.querySelector(".card__like-icon_active");
+  const cardLikeIcon = card.querySelector(".card__like-icon");
   const deleteButton = card.querySelector(".card__delete");
 
   cardImage.src = data.link;
