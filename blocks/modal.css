@@ -71,6 +71,7 @@
   font-size: 16px;
   line-height: 110.00000000000001%;
   color: #212121b2;
+  display: block;
 }
 
 .modal__input {
@@ -78,7 +79,7 @@
   padding: 13px 16px;
   border-radius: 4px;
   gap: 10px;
-  gap: 10px;
+  margin-bottom: 0;
   border: 1px solid rgba(33, 33, 33, 0.4);
   font-family: "Poppins";
   font-size: 20px;
@@ -87,6 +88,7 @@
 
 .modal__input:hover {
   border: 1px solid #212121;
+  cursor: pointer;
 }
 
 .modal__submit-btn {
@@ -145,9 +147,13 @@
   background-image: url("../images/close_hover.svg");
 }
 
+.modal__error {
+  display: block;
+}
 @media screen and (max-width: 861px) {
   .modal {
     padding: 0 10px;
+    margin-top: 8px;
   }
   .modal__container {
     padding: 25px 22px;
