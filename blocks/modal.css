@@ -149,6 +149,7 @@
 
 .modal__error {
   display: block;
+  visibility: hidden;
 }
 @media screen and (max-width: 861px) {
   .modal {
