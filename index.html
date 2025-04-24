@@ -65,7 +65,7 @@
         <div class="modal__container">
           <button class="modal__close-btn" type="button"></button>
           <h2 class="modal__title">Edit profile</h2>
-          <form name="edit-profile" class="modal__form">
+          <form name="edit-profile" class="modal__form" novalidate>
             <label class="modal__label">
               Name
               <input
@@ -78,7 +78,9 @@
                 minlength="2"
                 maxlength="40"
               />
-              <span class="modal__error">Please fill out this field.</span>
+              <span id="name-error" class="modal__error"
+                >Please fill out this field.</span
+              >
             </label>
             <label class="modal__label">
               Description
@@ -92,7 +94,7 @@
                 minlength="2"
                 maxlength="200"
               />
-              <span class="modal__error"
+              <span id="description-error" class="modal__error"
                 >Please lengthen this text to 2 characters or more (you are
                 currently using 1 character).</span
               >
@@ -105,7 +107,7 @@
         <div class="modal__container">
           <button class="modal__close-btn" type="button"></button>
           <h2 class="modal__title">New post</h2>
-          <form name="add-card" class="modal__form">
+          <form name="add-card" class="modal__form" novalidate>
             <label class="modal__label">
               Image link
               <input
@@ -116,7 +118,7 @@
                 placeholder="Paste a link to the picture"
                 required
               />
-              <span class="modal__error">Please enter a URL.</span>
+              <span id="add-card-link-error" class="modal__error"></span>
             </label>
             <label class="modal__label">
               Caption
@@ -130,7 +132,7 @@
                 maxlength="30"
                 required
               />
-              <span class="modal__error">Please fill out this field.</span>
+              <span id="add-card-name-error" class="modal__error"></span>
             </label>
             <button class="modal__submit-btn" type="submit">Save</button>
           </form>
