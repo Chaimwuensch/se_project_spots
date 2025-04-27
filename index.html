@@ -46,16 +46,6 @@
         </section>
         <section class="cards page__section">
           <ul class="cards__list"></ul>
-          <template id="card__template">
-            <li class="card">
-              <button type="button" class="card__delete"></button>
-              <img class="card__image" src="" alt="" />
-              <div class="card__info">
-                <p class="card__title"></p>
-                <button type="button" class="card__like-icon"></button>
-              </div>
-            </li>
-          </template>
         </section>
       </main>
       <footer class="footer">
@@ -149,6 +139,18 @@
         </div>
       </div>
     </div>
+
+    <template id="card-template">
+      <li class="card">
+        <button type="button" class="card__delete"></button>
+        <img class="card__image" src="" alt="" />
+        <div class="card__info">
+          <p class="card__title"></p>
+          <button type="button" class="card__like-icon"></button>
+        </div>
+      </li>
+    </template>
+
     <script defer src="scripts/script.js"></script>
     <script defer src="scripts/validation.js"></script>
   </body>

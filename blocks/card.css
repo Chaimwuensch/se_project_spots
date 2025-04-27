@@ -45,15 +45,18 @@
 
 .card__like-icon:hover {
   opacity: 100%;
+  cursor: pointer;
 }
 
 .card__like-icon_active {
   background-image: url("../images/Liked.svg");
   opacity: 100%;
+  cursor: pointer;
 }
 
 .card__like-icon_active:hover {
   background-image: url("../images/Liked_hover.svg");
+  cursor: pointer;
 }
 
 .card__delete {
@@ -77,6 +80,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  cursor: pointer;
 }
 
 .card__caption {
