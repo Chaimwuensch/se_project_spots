@@ -117,7 +117,7 @@ cardForm.addEventListener("submit", (evt) => {
   const newCard = getCard(cardData);
   cardSection.prepend(newCard);
   cardForm.reset();
-  disableButton(cardFormSubmitButton);
+  disableButton(cardFormSubmitButton, settings);
   closeModal(editCardModal);
 });
 
