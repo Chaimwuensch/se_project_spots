@@ -126,19 +126,29 @@ initialCards.forEach((item) => {
   cardSection.append(positioning);
 });
 
+function handleEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    if (openedModal) closeModal(openedModal);
+  }
+}
+
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscape);
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscape);
+}
+
 const closeButtons = Array.from(document.querySelectorAll(".modal__close-btn"));
 closeButtons.forEach((button) => {
   const modal = button.closest(".modal");
   button.addEventListener("click", () => {
     closeModal(modal);
   });
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    const openedModal = document.querySelector(".modal_opened");
-    if (openedModal) closeModal(openedModal);
-  }
 });
 
 document.querySelectorAll(".modal").forEach((modal) => {

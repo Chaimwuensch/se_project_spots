@@ -2,7 +2,7 @@ const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-btn",
-  inactiveButtonClass: "modal__button_disabled",
+  inactiveButtonClass: "modal__submit-btn_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error",
 };
@@ -31,8 +31,8 @@ const checkInputValidity = (formEl, inputEl, config) => {
   }
 };
 
-const disableButton = (buttonElement) => {
-  buttonElement.disabled = true;
+const disableButton = (buttonElment) => {
+  config.inactiveButtonClass;
 };
 
 const resetValidation = (formEl, inputList, buttonElement, config) => {
@@ -40,7 +40,6 @@ const resetValidation = (formEl, inputList, buttonElement, config) => {
     hideInputError(formEl, input, config);
   });
   disableButton(buttonElement);
-  buttonElement.classList.add(config.inactiveButtonClass);
 };
 
 const hasInvalidInput = (inputList) => {
@@ -50,11 +49,16 @@ const hasInvalidInput = (inputList) => {
 const toggleButtonState = (inputList, buttonElement, config) => {
   if (hasInvalidInput(inputList)) {
     disableButton(buttonElement);
-    buttonElement.classList.add(config.inactiveButtonClass);
   } else {
     buttonElement.disabled = false;
     buttonElement.classList.remove(config.inactiveButtonClass);
   }
+};
+
+toggleButtonState(inputList, buttonElement, config);
+const enableButton = (buttonElement) => {
+  buttonElement.disabled = false;
+  buttonElement.classList.remove(config.inactiveButtonClass);
 };
 
 const setEventListeners = (formElement, config) => {
@@ -62,12 +66,9 @@ const setEventListeners = (formElement, config) => {
     formElement.querySelectorAll(config.inputSelector)
   );
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
-
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", function () {
-      checkInputValidity(formElement, inputElement, config);
-      toggleButtonState(inputList, buttonElement, config);
-    });
+  toggleButtonState(inputList, buttonElement, config);
+  formElement.addEventListener("reset", () => {
+    disableButton(buttonElement, config);
   });
 };
 
