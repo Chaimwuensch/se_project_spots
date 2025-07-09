@@ -12,7 +12,6 @@ module.exports = {
     filename: "main.js",
     publicPath: "",
   },
-
   mode: "development",
   devtool: "inline-source-map",
   stats: "errors-only",
@@ -30,7 +29,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: "babel-loader",
-        exclude: "/node_modules/",
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -56,6 +55,8 @@ module.exports = {
       template: "./src/index.html",
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "style.css",
+    }),
   ],
 };
