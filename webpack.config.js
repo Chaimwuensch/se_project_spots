@@ -2,10 +2,11 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { type } = require("os");
 
 module.exports = {
   entry: {
-    main: "./src/index.js",
+    main: "./src/scripts/script.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -14,7 +15,6 @@ module.exports = {
   },
   mode: "development",
   devtool: "inline-source-map",
-  stats: "errors-only",
   devServer: {
     static: path.resolve(__dirname, "./dist"),
     compress: true,
@@ -22,6 +22,13 @@ module.exports = {
     open: true,
     liveReload: true,
     hot: false,
+    proxy: {
+      "/v1": {
+        target: "https://around-api.en.tripleten-services.com",
+        changeOrigin: true,
+        secure: false,
+      },
+    },
   },
   target: ["web", "es5"],
   module: {
@@ -30,19 +37,11 @@ module.exports = {
         test: /\.js$/,
         loader: "babel-loader",
         exclude: /node_modules/,
+        type: "javascript/auto",
       },
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 1,
-            },
-          },
-          "postcss-loader",
-        ],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
       {
         test: /\.(png|svg|jpg|jpeg|webp|gif|woff(2)?|eot|ttf|otf)$/,
@@ -52,7 +51,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./index.html",
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({

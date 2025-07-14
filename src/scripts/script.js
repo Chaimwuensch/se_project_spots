@@ -1,4 +1,26 @@
+import "../pages/index.css";
+
 import { Api } from "./Api.js";
+import website_contacts from "../images/website-contacts.jpg";
+import Trash_hover from "../images/Trash_hover.svg";
+import Trash from "../images/Trash.svg";
+import steps from "../images/steps.png";
+import Logo from "../images/Logo.svg";
+import Like_Icon from "../images/Like_Icon.svg";
+import Liked_hover from "../images/Liked_hover.svg";
+import Liked from "../images/Liked.svg";
+import Group_26 from "../images/Group_26.svg";
+import Group_2 from "../images/Group_2.svg";
+import close_hover from "../images/close_hover.svg";
+import close from "../images/close.svg";
+import avatar from "../images/avatar.jpg";
+import achievements from "../images/achievements.svg";
+import photo6 from "../images/6-photo-by-moritz-feldmann-from-pexels.jpg";
+import photo5 from "../images/5-photo-by-van-anh-nguyen-from-pexels.jpg";
+import photo4 from "../images/4-photo-by-maurice-laschet-from-pexels.jpg";
+import photo3 from "../images/3-photo-by-tubanur-dogan-from-pexels.jpg";
+import photo2 from "../images/2-photo-by-ceiline-from-pexels.jpg";
+import photo1 from "../images/1-photo-by-moritz-feldmann-from-pexels.jpg";
 
 const initialCards = [
   {
@@ -30,7 +52,7 @@ const initialCards = [
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    Authorization: "379803de-4d40-4606-8a13-094952d961f8",
+    Authorization: "a0590c82-7964-4cc7-b25d-a8953ca2e35a",
     "Content-Type": "application/json",
   },
 });
@@ -86,6 +108,11 @@ function getCard(data) {
   cardImage.src = data.link;
   cardImage.alt = data.name;
   cardName.textContent = data.name;
+
+  // Add like toggle functionality
+  cardLikeIcon.addEventListener("click", () => {
+    cardLikeIcon.classList.toggle("card__like-icon_active");
+  });
 
   // When trash icon is clicked, open confirmation and store card info
   deleteButton.addEventListener("click", () => {
@@ -248,3 +275,13 @@ function resetValidation(editForm, inputs, button, settings) {
   });
   button.disabled = false;
 }
+
+document.querySelector(".header__logo").src = Logo;
+document.querySelector(".profile__image").src = avatar;
+document.querySelector(".profile__edit-icon").src = Group_2;
+document.querySelector(".profile__post-icon").src = Group_26;
+document.querySelector(".card-riddance__close").src = close;
+document.querySelector(".profile__post-icon").src = Group_26;
+document.querySelector(".profile__edit-icon").src = Group_2;
+// If you have other static images in the DOM, set their src similarly:
+// document.querySelector('.some-class').src = achievements;
