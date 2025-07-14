@@ -1,5 +1,10 @@
+import "../pages/index.css";
+
 import { Api } from "./Api.js";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3494d28 (fixed errors)
 import website_contacts from "../images/website-contacts.jpg";
 import Trash_hover from "../images/Trash_hover.svg";
 import Trash from "../images/Trash.svg";
@@ -8,7 +13,10 @@ import Logo from "../images/Logo.svg";
 import Like_Icon from "../images/Like_Icon.svg";
 import Liked_hover from "../images/Liked_hover.svg";
 import Liked from "../images/Liked.svg";
+<<<<<<< HEAD
 // TODO: change names of group...
+=======
+>>>>>>> 3494d28 (fixed errors)
 import Group_26 from "../images/Group_26.svg";
 import Group_2 from "../images/Group_2.svg";
 import close_hover from "../images/close_hover.svg";
@@ -21,17 +29,51 @@ import photo4 from "../images/4-photo-by-maurice-laschet-from-pexels.jpg";
 import photo3 from "../images/3-photo-by-tubanur-dogan-from-pexels.jpg";
 import photo2 from "../images/2-photo-by-ceiline-from-pexels.jpg";
 import photo1 from "../images/1-photo-by-moritz-feldmann-from-pexels.jpg";
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 3494d28 (fixed errors)
+=======
+
+const initialCards = [
+  {
+    name: "Val Thorens",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+  },
+  {
+    name: "Restaurant terrace",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
+  },
+  {
+    name: "An outdoor cafe",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
+  },
+  {
+    name: "A very long bridge, over the forest and through the trees",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
+  },
+  {
+    name: "Tunnel with morning light",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+  },
+  {
+    name: "Mountain house",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
+  },
+];
+>>>>>>> 3494d28 (fixed errors)
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
 <<<<<<< HEAD
+<<<<<<< HEAD
     Authorization: "b33b9d1c-a249-4fd0-8745-28d5b0044be8",
 =======
     Authorization: "379803de-4d40-4606-8a13-094952d961f8",
 >>>>>>> parent of 3494d28 (fixed errors)
+=======
+    Authorization: "a0590c82-7964-4cc7-b25d-a8953ca2e35a",
+>>>>>>> 3494d28 (fixed errors)
     "Content-Type": "application/json",
   },
 });
@@ -89,6 +131,7 @@ function getCard(data) {
   cardName.textContent = data.name;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   cardLikeIcon.addEventListener("click", () => {
     console.log(data);
     if (cardLikeIcon.classList.contains("card__like-icon_active")) {
@@ -117,6 +160,13 @@ function getCard(data) {
   });
 
 =======
+=======
+  // Add like toggle functionality
+  cardLikeIcon.addEventListener("click", () => {
+    cardLikeIcon.classList.toggle("card__like-icon_active");
+  });
+
+>>>>>>> 3494d28 (fixed errors)
   // When trash icon is clicked, open confirmation and store card info
 >>>>>>> parent of 3494d28 (fixed errors)
   deleteButton.addEventListener("click", () => {
@@ -272,6 +322,9 @@ function resetValidation(editForm, inputs, button, settings) {
   button.disabled = false;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3494d28 (fixed errors)
 
 document.querySelector(".header__logo").src = Logo;
 document.querySelector(".profile__image").src = avatar;
@@ -280,5 +333,10 @@ document.querySelector(".profile__post-icon").src = Group_26;
 document.querySelector(".card-riddance__close").src = close;
 document.querySelector(".profile__post-icon").src = Group_26;
 document.querySelector(".profile__edit-icon").src = Group_2;
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 3494d28 (fixed errors)
+=======
+// If you have other static images in the DOM, set their src similarly:
+// document.querySelector('.some-class').src = achievements;
+>>>>>>> 3494d28 (fixed errors)
