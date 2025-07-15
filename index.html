@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>spots</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <div class="page">
@@ -126,6 +127,22 @@
           <p class="modal__preview-title"></p>
         </div>
       </div>
+      <div class="modal" id="avatar-modal">
+        <div class="modal__container">
+          <button class="modal__close-btn" type="button"></button>
+          <h2 class="modal__title">Edit avatar</h2>
+          <form name="edit-avatar" class="modal__form" novalidate>
+            <input
+              type="url"
+              name="avatar-link"
+              class="modal__input"
+              placeholder="Avatar link"
+              required
+            />
+            <button class="modal__submit-btn" type="submit">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
 
     <template id="card-template">
@@ -150,12 +167,14 @@
         <p class="card-riddance__text">
           Are you sure you want to delete this image?
         </p>
-        <button type="button" class="card__riddance-delete" id="card-delete">
-          Delete
-        </button>
-        <button type="button" class="card__riddance-cancel" id="card-cancel">
-          Cancel
-        </button>
+        <div class="card-riddance__buttons">
+          <button type="button" class="card-riddance__delete" id="card-delete">
+            Delete
+          </button>
+          <button type="button" class="card-riddance__cancel" id="card-cancel">
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
     <script defer src="main.js"></script>

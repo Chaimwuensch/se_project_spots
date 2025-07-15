@@ -9,6 +9,7 @@ import Logo from "../images/Logo.svg";
 import Like_Icon from "../images/Like_Icon.svg";
 import Liked_hover from "../images/Liked_hover.svg";
 import Liked from "../images/Liked.svg";
+// TODO: change names of group...
 import Group_26 from "../images/Group_26.svg";
 import Group_2 from "../images/Group_2.svg";
 import close_hover from "../images/close_hover.svg";
@@ -22,37 +23,10 @@ import photo3 from "../images/3-photo-by-tubanur-dogan-from-pexels.jpg";
 import photo2 from "../images/2-photo-by-ceiline-from-pexels.jpg";
 import photo1 from "../images/1-photo-by-moritz-feldmann-from-pexels.jpg";
 
-const initialCards = [
-  {
-    name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-  {
-    name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-  },
-  {
-    name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-  },
-  {
-    name: "A very long bridge, over the forest and through the trees",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-  },
-  {
-    name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-];
-
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    Authorization: "a0590c82-7964-4cc7-b25d-a8953ca2e35a",
+    Authorization: "b33b9d1c-a249-4fd0-8745-28d5b0044be8",
     "Content-Type": "application/json",
   },
 });
@@ -109,21 +83,39 @@ function getCard(data) {
   cardImage.alt = data.name;
   cardName.textContent = data.name;
 
-  // Add like toggle functionality
   cardLikeIcon.addEventListener("click", () => {
-    cardLikeIcon.classList.toggle("card__like-icon_active");
+    console.log(data);
+    if (cardLikeIcon.classList.contains("card__like-icon_active")) {
+      // DISLIKE
+      api
+        .deleteCardLike(data._id)
+        .then(() => {
+          cardLikeIcon.classList.remove("card__like-icon_active");
+        })
+        .catch((err) => {
+          cardLikeIcon.classList.remove("card__like-icon_active");
+          console.error("Error removing like:", err);
+        });
+    } else {
+      // LIKE
+      api
+        .addCardLike(data._id)
+        .then(() => {
+          cardLikeIcon.classList.add("card__like-icon_active");
+        })
+        .catch((err) => {
+          cardLikeIcon.classList.add("card__like-icon_active");
+          console.error("Error adding like:", err);
+        });
+    }
   });
 
-  // When trash icon is clicked, open confirmation and store card info
   deleteButton.addEventListener("click", () => {
     cardDrop.classList.add("card-riddance__opened");
     cardToDelete = card;
     cardIdToDelete = data._id;
   });
 
-  cardClosedButton.addEventListener("click", () => {
-    cardDrop.classList.remove("card-riddance__opened");
-  });
   cardImage.addEventListener("click", () => {
     openPreviewModal(data);
   });
@@ -131,10 +123,8 @@ function getCard(data) {
   return card;
 }
 
-// When confirm delete button is clicked
 cardDeleteButton.addEventListener("click", () => {
   if (cardIdToDelete) {
-    // Server card
     api
       .removeCard({ cardID: cardIdToDelete })
       .then(() => {
@@ -145,7 +135,6 @@ cardDeleteButton.addEventListener("click", () => {
       })
       .catch((error) => console.error("Error deleting card:", error));
   } else if (cardToDelete) {
-    // Local card (no _id)
     cardToDelete.remove();
     cardDrop.classList.remove("card-riddance__opened");
     cardToDelete = null;
@@ -156,6 +145,10 @@ cardCancelButton.addEventListener("click", () => {
   cardDrop.classList.remove("card-riddance__opened");
   cardToDelete = null;
   cardIdToDelete = null;
+});
+
+cardClosedButton.addEventListener("click", () => {
+  cardDrop.classList.remove("card-riddance__opened");
 });
 
 function openPreviewModal(data) {
@@ -175,7 +168,6 @@ function handleEditForm(evt) {
     .then((userData) => {
       profileName.textContent = userData.name;
       profileTitle.textContent = userData.about;
-      // If you have an avatar: profileAvatar.src = userData.avatar;
       closeModal(editProfileModal);
     })
     .catch((err) => {
@@ -218,11 +210,6 @@ cardForm.addEventListener("submit", (evt) => {
     .catch((err) => {
       console.error("Failed to add card:", err);
     });
-});
-
-initialCards.forEach((item) => {
-  const positioning = getCard(item);
-  cardSection.append(positioning);
 });
 
 function handleEscape(evt) {
@@ -283,5 +270,3 @@ document.querySelector(".profile__post-icon").src = Group_26;
 document.querySelector(".card-riddance__close").src = close;
 document.querySelector(".profile__post-icon").src = Group_26;
 document.querySelector(".profile__edit-icon").src = Group_2;
-// If you have other static images in the DOM, set their src similarly:
-// document.querySelector('.some-class').src = achievements;

@@ -96,7 +96,7 @@
   font-family: "Poppins";
 }
 
-.card-riddance{
+.card-riddance {
   position: fixed;
   top: 0;
   left: 0;
@@ -122,10 +122,10 @@
   background-color: #fff;
   padding: 46px 50px;
   position: relative;
-  border-radius: 10px;
+  border-radius: 8px;
   box-sizing: border-box;
-  width: 730px;
-  max-width: 100%;
+  width: 630px;
+  height: 172px;
 }
 
 .card-riddance__close {
@@ -140,6 +140,61 @@
   border: none;
   background-image: url("../images/close.svg");
   cursor: pointer;
+}
+
+.card-riddance__text {
+  width: 590;
+  height: 24;
+  justify-content: space-between;
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin: 0 auto;
+}
+
+.card-riddance__buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding-top: 32px;
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.card-riddance__delete {
+  width: 156;
+  height: 52;
+  border-radius: 8px;
+  padding-top: 18px;
+  padding-right: 32px;
+  padding-bottom: 18px;
+  padding-left: 32px;
+  gap: 8px;
+  background-color: #ff6565;
+  border: none;
+  height: 52px;
+  width: 156px;
+  cursor: pointer;
+}
+
+.card-riddance__cancel {
+  border-radius: 8px;
+  padding: 18px 32px;
+  gap: 8px;
+  height: 52px;
+  width: 156px;
+  cursor: pointer;
+}
+
+.card-riddance__cancel:hover {
+  filter: invert(100%);
 }
 @media screen and (max-width: 1295px) {
   .card__image {
