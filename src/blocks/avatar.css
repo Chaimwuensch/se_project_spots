@@ -1,0 +1,207 @@
+/* Modal overlay */
+#avatar-modal.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+#avatar-modal.modal_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Modal container */
+#avatar-modal .modal__container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  padding: 32px 32px 24px 32px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Close button */
+#avatar-modal .modal__close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  background-image: url("../images/close.svg");
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+#avatar-modal .modal__close-btn:hover {
+  opacity: 1;
+}
+
+/* Title */
+#avatar-modal .modal__title {
+  font-family: Poppins, Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  text-align: left;
+}
+
+/* Form */
+#avatar-modal .modal__form_type_avatar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Input */
+#avatar-modal .modal__input_type_avatar {
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#avatar-modal .modal__input_type_avatar:focus {
+  border-color: #000000;
+}
+
+/* Buttons container */
+#avatar-modal .modal__form_type_avatar {
+  gap: 16px;
+}
+
+/* Save button */
+#avatar-modal .modal__submit-btn_type_avatar {
+  background: #000000;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+#avatar-modal .modal__submit-btn_type_avatar:hover {
+  cursor: pointer;
+}
+
+.avatar-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 19px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s ease;
+}
+
+.avatar-popup__opened {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.avatar-popup__container {
+  background-color: #fff;
+  padding: 46px 50px;
+  position: relative;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 630px;
+  height: 172px;
+}
+
+/* Close button */
+.avatar-popup__close {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0;
+  left: calc(100% + 12px);
+  filter: none;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  background-image: url("../images/close.svg");
+  cursor: pointer;
+}
+
+.avatar-popup__text {
+  width: 590;
+  height: 24;
+  justify-content: space-between;
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin: 0 auto;
+}
+
+.avatar-popup__buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding-top: 32px;
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.avatar-popup__delete {
+  width: 156;
+  height: 52;
+  border-radius: 8px;
+  padding-top: 18px;
+  padding-right: 32px;
+  padding-bottom: 18px;
+  padding-left: 32px;
+  gap: 8px;
+  background-color: #ff6565;
+  border: none;
+  height: 52px;
+  width: 156px;
+  cursor: pointer;
+}
+
+.avatar-popup__cancel {
+  border-radius: 8px;
+  padding: 18px 32px;
+  gap: 8px;
+  height: 52px;
+  width: 156px;
+  cursor: pointer;
+}
+
+.avatar-popup__cancel:hover {
+  filter: invert(100%);
+}

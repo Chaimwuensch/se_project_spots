@@ -9,7 +9,6 @@ import Logo from "../images/Logo.svg";
 import Like_Icon from "../images/Like_Icon.svg";
 import Liked_hover from "../images/Liked_hover.svg";
 import Liked from "../images/Liked.svg";
-// TODO: change names of group...
 import Group_26 from "../images/Group_26.svg";
 import Group_2 from "../images/Group_2.svg";
 import close_hover from "../images/close_hover.svg";
@@ -26,26 +25,10 @@ import photo1 from "../images/1-photo-by-moritz-feldmann-from-pexels.jpg";
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    Authorization: "b33b9d1c-a249-4fd0-8745-28d5b0044be8",
+    Authorization: "a0a3303f-8ccb-443a-9899-237bcdbeb2e4",
     "Content-Type": "application/json",
   },
 });
-
-api
-  .getAppInfo()
-  .then(([userData, cards]) => {
-    // Set user info
-    profileName.textContent = userData.name;
-    profileTitle.textContent = userData.about;
-    // Render cards
-    cards.forEach((item) => {
-      const card = getCard(item);
-      cardSection.append(card);
-    });
-  })
-  .catch((err) => {
-    console.error(err);
-  });
 
 const cardDeleteButton = document.querySelector("#card-delete");
 const cardCancelButton = document.querySelector("#card-cancel");
@@ -84,11 +67,13 @@ function getCard(data) {
   cardName.textContent = data.name;
 
   cardLikeIcon.addEventListener("click", () => {
-    console.log(data);
+    if (!data._id) {
+      cardLikeIcon.classList.toggle("card__like-icon_active");
+      return;
+    }
     if (cardLikeIcon.classList.contains("card__like-icon_active")) {
-      // DISLIKE
       api
-        .deleteCardLike(data._id)
+        .removeLike(data._id)
         .then(() => {
           cardLikeIcon.classList.remove("card__like-icon_active");
         })
@@ -97,9 +82,8 @@ function getCard(data) {
           console.error("Error removing like:", err);
         });
     } else {
-      // LIKE
       api
-        .addCardLike(data._id)
+        .addLike(data._id)
         .then(() => {
           cardLikeIcon.classList.add("card__like-icon_active");
         })
@@ -116,6 +100,9 @@ function getCard(data) {
     cardIdToDelete = data._id;
   });
 
+  cardClosedButton.addEventListener("click", () => {
+    cardDrop.classList.remove("card-riddance__opened");
+  });
   cardImage.addEventListener("click", () => {
     openPreviewModal(data);
   });
@@ -147,10 +134,6 @@ cardCancelButton.addEventListener("click", () => {
   cardIdToDelete = null;
 });
 
-cardClosedButton.addEventListener("click", () => {
-  cardDrop.classList.remove("card-riddance__opened");
-});
-
 function openPreviewModal(data) {
   previewImage.src = data.link;
   previewImage.alt = data.name;
@@ -165,6 +148,7 @@ function handleEditForm(evt) {
 
   api
     .editUserInfo({ name, about })
+
     .then((userData) => {
       profileName.textContent = userData.name;
       profileTitle.textContent = userData.about;
@@ -263,10 +247,102 @@ function resetValidation(editForm, inputs, button, settings) {
   button.disabled = false;
 }
 
+function handleSubmit(request, modalInstance, form, loadingText = "Saving...") {
+  modalInstance.renderLoading(true, loadingText);
+
+  request().then(() => {
+    request()
+      .then(() => {
+        modalInstance.close();
+        if (form) {
+          form.disableButton();
+        }
+      })
+      .catch(console.error)
+      .finally(() => {
+        modalInstance.renderLoading(false);
+      });
+  });
+}
+
 document.querySelector(".header__logo").src = Logo;
 document.querySelector(".profile__image").src = avatar;
 document.querySelector(".profile__edit-icon").src = Group_2;
 document.querySelector(".profile__post-icon").src = Group_26;
 document.querySelector(".card-riddance__close").src = close;
-document.querySelector(".profile__post-icon").src = Group_26;
-document.querySelector(".profile__edit-icon").src = Group_2;
+// If you have other static images in the DOM, set their src similarly:
+// document.querySelector('.some-class').src = achievements;
+
+// Add these methods to your Api class:
+Api.prototype.addLike = function (cardId) {
+  return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
+    method: "PUT",
+    headers: this.headers,
+  }).then((res) => (res.ok ? res.json() : Promise.reject(res.status)));
+};
+
+Api.prototype.removeLike = function (cardId) {
+  return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
+    method: "DELETE",
+    headers: this.headers,
+  }).then((res) => (res.ok ? res.json() : Promise.reject(res.status)));
+};
+
+api
+  .getAppInfo()
+  .then(([userData, cards]) => {
+    profileName.textContent = userData.name;
+    profileTitle.textContent = userData.about;
+    cards.forEach((item) => {
+      const card = getCard(item);
+      cardSection.append(card);
+    });
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+// ==== AVATAR POPUP FUNCTIONALITY ====
+const avatarModal = document.querySelector("#avatar-modal");
+const avatarForm = avatarModal.querySelector("form");
+const avatarInput = avatarModal.querySelector("input[name='avatar-link']");
+const profileImage = document.querySelector(".profile__image");
+const avatarDeleteButton = avatarForm.querySelector(".modal__delete-btn_type_avatar");
+const avatarCloseButton = avatarModal.querySelector(".modal__close-btn_type_avatar");
+const avatarSubmitButton = avatarForm.querySelector(".modal__submit-btn_type_avatar");
+
+let currentAvatarUrl = avatar;
+
+// Open avatar modal
+profileImage.addEventListener("click", () => {
+  avatarInput.value = currentAvatarUrl;
+  openModal(avatarModal);
+});
+
+// Save avatar using API
+avatarForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const newUrl = avatarInput.value.trim();
+  if (!newUrl) return;
+
+  api.updateAvatar({ avatar: newUrl })
+    .then((userData) => {
+      profileImage.src = userData.avatar;
+      currentAvatarUrl = userData.avatar;
+      closeModal(avatarModal);
+    })
+    .catch((err) => {
+      console.error("Failed to update avatar:", err);
+    });
+});
+
+// Close avatar modal
+avatarCloseButton.addEventListener("click", () => {
+  closeModal(avatarModal);
+});
+
+// Delete avatar (reset to default)
+avatarDeleteButton.addEventListener("click", () => {
+  profileImage.src = avatar;
+  currentAvatarUrl = avatar;
+  closeModal(avatarModal);
+});

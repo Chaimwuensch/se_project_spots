@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>spots</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
   </head>
   <body>
     <div class="page">
@@ -127,19 +127,28 @@
           <p class="modal__preview-title"></p>
         </div>
       </div>
+
       <div class="modal" id="avatar-modal">
         <div class="modal__container">
-          <button class="modal__close-btn" type="button"></button>
-          <h2 class="modal__title">Edit avatar</h2>
-          <form name="edit-avatar" class="modal__form" novalidate>
+          <button
+            class="modal__close-btn modal__close-btn_type_avatar"
+            type="button"
+          ></button>
+          <h2 class="modal__title">Edit profile avatar</h2>
+          <form name="edit-avatar" class="modal__form_type_avatar" novalidate>
             <input
               type="url"
               name="avatar-link"
-              class="modal__input"
-              placeholder="Avatar link"
+              class="modal__input modal__input_type_avatar"
+              placeholder="Paste the link to an image"
               required
             />
-            <button class="modal__submit-btn" type="submit">Save</button>
+            <button
+              class="modal__submit-btn modal__submit-btn_type_avatar"
+              type="submit"
+            >
+              Save
+            </button>
           </form>
         </div>
       </div>
@@ -177,6 +186,5 @@
         </div>
       </div>
     </div>
-    <script defer src="main.js"></script>
   </body>
 </html>
