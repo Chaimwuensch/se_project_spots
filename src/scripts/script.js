@@ -1,6 +1,5 @@
-import "../pages/index.css";
-
 import { Api } from "./Api.js";
+<<<<<<< HEAD
 import website_contacts from "../images/website-contacts.jpg";
 import Trash_hover from "../images/Trash_hover.svg";
 import Trash from "../images/Trash.svg";
@@ -22,11 +21,17 @@ import photo4 from "../images/4-photo-by-maurice-laschet-from-pexels.jpg";
 import photo3 from "../images/3-photo-by-tubanur-dogan-from-pexels.jpg";
 import photo2 from "../images/2-photo-by-ceiline-from-pexels.jpg";
 import photo1 from "../images/1-photo-by-moritz-feldmann-from-pexels.jpg";
+=======
+>>>>>>> parent of 3494d28 (fixed errors)
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
+<<<<<<< HEAD
     Authorization: "b33b9d1c-a249-4fd0-8745-28d5b0044be8",
+=======
+    Authorization: "379803de-4d40-4606-8a13-094952d961f8",
+>>>>>>> parent of 3494d28 (fixed errors)
     "Content-Type": "application/json",
   },
 });
@@ -83,6 +88,7 @@ function getCard(data) {
   cardImage.alt = data.name;
   cardName.textContent = data.name;
 
+<<<<<<< HEAD
   cardLikeIcon.addEventListener("click", () => {
     console.log(data);
     if (cardLikeIcon.classList.contains("card__like-icon_active")) {
@@ -110,6 +116,9 @@ function getCard(data) {
     }
   });
 
+=======
+  // When trash icon is clicked, open confirmation and store card info
+>>>>>>> parent of 3494d28 (fixed errors)
   deleteButton.addEventListener("click", () => {
     cardDrop.classList.add("card-riddance__opened");
     cardToDelete = card;
@@ -262,6 +271,7 @@ function resetValidation(editForm, inputs, button, settings) {
   });
   button.disabled = false;
 }
+<<<<<<< HEAD
 
 document.querySelector(".header__logo").src = Logo;
 document.querySelector(".profile__image").src = avatar;
@@ -270,3 +280,5 @@ document.querySelector(".profile__post-icon").src = Group_26;
 document.querySelector(".card-riddance__close").src = close;
 document.querySelector(".profile__post-icon").src = Group_26;
 document.querySelector(".profile__edit-icon").src = Group_2;
+=======
+>>>>>>> parent of 3494d28 (fixed errors)
