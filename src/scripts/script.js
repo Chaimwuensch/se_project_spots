@@ -54,11 +54,7 @@ const initialCards = [
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    Authorization: "b33b9d1c-a249-4fd0-8745-28d5b0044be8",
-
-    Authorization: "379803de-4d40-4606-8a13-094952d961f8",
-
-    Authorization: "a0590c82-7964-4cc7-b25d-a8953ca2e35a",
+    Authorization: "348fed7e-2076-4846-8d99-5a6f2b50e55c",
 
     "Content-Type": "application/json",
   },
