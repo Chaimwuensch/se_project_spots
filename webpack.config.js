@@ -29,6 +29,11 @@ module.exports = {
         secure: false,
       },
     },
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
+    compress: true,
+    port: 8080,
   },
   target: ["web", "es5"],
   module: {
@@ -51,7 +56,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./index.html",
+      template: "./src/index.html",
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({

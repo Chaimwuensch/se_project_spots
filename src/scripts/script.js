@@ -1,55 +1,5 @@
 import "../pages/index.css";
-
 import { Api } from "./Api.js";
-import website_contacts from "../images/website-contacts.jpg";
-import Trash_hover from "../images/Trash_hover.svg";
-import Trash from "../images/Trash.svg";
-import steps from "../images/steps.png";
-import Logo from "../images/Logo.svg";
-import Like_Icon from "../images/Like_Icon.svg";
-import Liked_hover from "../images/Liked_hover.svg";
-import Liked from "../images/Liked.svg";
-// TODO: change names of group...
-
-import Group_26 from "../images/Group_26.svg";
-import Group_2 from "../images/Group_2.svg";
-import close_hover from "../images/close_hover.svg";
-import close from "../images/close.svg";
-import avatar from "../images/avatar.jpg";
-import achievements from "../images/achievements.svg";
-import photo6 from "../images/6-photo-by-moritz-feldmann-from-pexels.jpg";
-import photo5 from "../images/5-photo-by-van-anh-nguyen-from-pexels.jpg";
-import photo4 from "../images/4-photo-by-maurice-laschet-from-pexels.jpg";
-import photo3 from "../images/3-photo-by-tubanur-dogan-from-pexels.jpg";
-import photo2 from "../images/2-photo-by-ceiline-from-pexels.jpg";
-import photo1 from "../images/1-photo-by-moritz-feldmann-from-pexels.jpg";
-
-const initialCards = [
-  {
-    name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-  {
-    name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-  },
-  {
-    name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-  },
-  {
-    name: "A very long bridge, over the forest and through the trees",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-  },
-  {
-    name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-];
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -76,7 +26,7 @@ api
     console.error(err);
   });
 
-const cardDeleteButton = document.querySelector("#card-delete");
+const confirmDeleteButton = document.querySelector("#card-delete");
 const cardCancelButton = document.querySelector("#card-cancel");
 const cardClosedButton = document.querySelector(".card-riddance__close");
 const cardDrop = document.querySelector("#card-riddance-modal");
@@ -97,6 +47,10 @@ const cardTemplate = document.querySelector("#card-template");
 const cardSection = document.querySelector(".cards__list");
 const cardNameInput = document.querySelector("#add-card-name");
 const cardLinkInput = document.querySelector("#add-card-link");
+const avatarEditButton = document.querySelector(".profile__avatar-edit-button"); // your edit button selector
+const avatarInput = document.querySelector("#avatar-link-input"); // your input selector for the avatar image link
+const avatarForm = document.querySelector(".profile__avatar-edit-btn");
+const profileAvatar = document.querySelector(".profile__avatar"); // the avatar image element
 
 let cardToDelete = null;
 let cardIdToDelete = null;
@@ -159,7 +113,7 @@ function getCard(data) {
   return card;
 }
 
-cardDeleteButton.addEventListener("click", () => {
+confirmDeleteButton.addEventListener("click", () => {
   if (cardIdToDelete) {
     api
       .removeCard({ cardID: cardIdToDelete })
@@ -298,8 +252,23 @@ function resetValidation(editForm, inputs, button, settings) {
   button.disabled = false;
 }
 
-document.querySelector(".header__logo").src = Logo;
-document.querySelector(".profile__image").src = avatar;
-document.querySelector(".profile__edit-icon").src = Group_2;
-document.querySelector(".profile__post-icon").src = Group_26;
-document.querySelector(".card-riddance__close").src = close;
+function handleAvatarForm(evt) {
+  evt.preventDefault();
+  const avatarLink = avatarInput.value;
+
+  api
+    .updateAvatar({ avatar: avatarLink })
+    .then((userData) => {
+      profileAvatar.src = userData.avatar;
+
+      closeModal(avatarForm.closest(".modal"));
+    })
+    .catch((err) => {
+      console.error("Failed to update avatar:", err);
+    });
+}
+
+avatarForm.addEventListener("submit", handleAvatarForm);
+avatarEditButton.addEventListener("click", () => {
+  openModal(avatarForm.closest(".modal"));
+});
