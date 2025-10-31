@@ -18,11 +18,17 @@
         <section class="profile page__section">
           <div class="profile__info">
             <div class="profile__card">
-              <img
-                class="profile__image"
-                src="<%=require('./images/avatar.jpg')%>"
-                alt="Bessie Coleman"
-              />
+              <div class="profile__image-container">
+                <img
+                  class="profile__image"
+                  src="<%=require('./images/avatar.jpg')%>"
+                  alt="Bessie Coleman"
+                />
+                <button
+                  class="profile__avatar-edit-btn"
+                  aria-label="Edit avatar"
+                ></button>
+              </div>
               <div class="profile__description">
                 <div class="profile__text">
                   <h1 class="profile__name">Bessie Coleman</h1>
@@ -153,11 +159,11 @@
         </div>
       </li>
     </template>
-    <div class="card-riddance" id="card-riddance-modal">
+    <div class="modal card-riddance" id="card-riddance-modal">
       <div class="card-riddance__container">
         <button
           type="button"
-          class="card-riddance__close"
+          class="card-riddance__close modal__close-btn"
           src="src\images\close.svg"
           alt="close button"
         ></button>
@@ -174,32 +180,27 @@
         </div>
       </div>
     </div>
-    <div class="profile__avatar-container">
-      <img
-        src="https://around-api.en.tripleten-services.com/v1/users/me/avatar"
-        alt="Profile Avatar"
-        class="profile__avatar"
-      />
-      <button
-        class="profile__avatar-edit-btn"
-        aria-label="Edit avatar"
-      ></button>
-    </div>
-
     <!-- Modal for Avatar Edit -->
     <div class="modal" id="edit-avatar-modal">
-      <form name="edit-avatar" class="modal__form">
-        <h2 class="modal__title">Change Profile Picture</h2>
-        <input
-          type="url"
-          id="avatar-link-input"
-          name="avatar"
-          class="modal__input"
-          placeholder="Image link"
-          required
-        />
-        <button type="submit" class="modal__submit-btn">Save</button>
-      </form>
+      <div class="modal__container">
+        <button class="modal__close-btn" type="button"></button>
+        <h2 class="modal__title">Edit Profile Avatar</h2>
+        <form name="edit-avatar" class="modal__form" novalidate>
+          <label class="modal__label">
+            Image link
+            <input
+              type="url"
+              id="avatar-link-input"
+              name="avatar"
+              class="modal__input"
+              placeholder="Enter image URL"
+              required
+            />
+            <span id="avatar-link-error" class="modal__error"></span>
+          </label>
+          <button type="submit" class="modal__submit-btn">Save</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
