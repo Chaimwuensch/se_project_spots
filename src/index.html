@@ -19,11 +19,7 @@
           <div class="profile__info">
             <div class="profile__card">
               <div class="profile__image-container">
-                <img
-                  class="profile__image"
-                  src="<%=require('./images/avatar.jpg')%>"
-                  alt="Bessie Coleman"
-                />
+                <img class="profile__image" src="" alt="profile image" />
                 <button
                   class="profile__avatar-edit-btn"
                   aria-label="Edit avatar"
@@ -77,9 +73,7 @@
                 minlength="2"
                 maxlength="40"
               />
-              <span id="name-error" class="modal__error"
-                >Please fill out this field.</span
-              >
+              <span id="name-error" class="modal__error"></span>
             </label>
             <label class="modal__label">
               Description
@@ -93,10 +87,7 @@
                 minlength="2"
                 maxlength="200"
               />
-              <span id="description-error" class="modal__error"
-                >Please lengthen this text to 2 characters or more (you are
-                currently using 1 character).</span
-              >
+              <span id="description-error" class="modal__error"></span>
             </label>
             <button class="modal__submit-btn" type="submit">Save</button>
           </form>
@@ -180,7 +171,6 @@
         </div>
       </div>
     </div>
-    <!-- Modal for Avatar Edit -->
     <div class="modal" id="edit-avatar-modal">
       <div class="modal__container">
         <button class="modal__close-btn" type="button"></button>

@@ -1,5 +1,6 @@
 import "../pages/index.css";
 import { Api } from "./Api.js";
+import "./validation.js";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -15,6 +16,8 @@ api
   .then(([userData, cards]) => {
     profileName.textContent = userData.name;
     profileTitle.textContent = userData.about;
+    profileImage.src = userData.avatar;
+    profileImage.alt = userData.name;
 
     cards.forEach((item) => {
       const card = getCard(item);
@@ -80,34 +83,30 @@ function getCard(data) {
   cardImage.src = data.link;
   cardImage.alt = data.name;
   cardName.textContent = data.name;
-
+  if (data.isLiked) {
+    cardLikeIcon.classList.add("card__like-icon_active");
+  }
   cardLikeIcon.addEventListener("click", () => {
     console.log(data);
-    if (cardLikeIcon.classList.contains("card__like-icon_active")) {
+    if (data.isLiked) {
       api
         .deleteCardLike(data._id)
         .then(() => {
-          cardLikeIcon.classList.remove("card__like-icon_active");
+          cardLikeIcon.classList.toggle("card__like-icon_active");
         })
         .catch((err) => {
-          cardLikeIcon.classList.remove("card__like-icon_active");
           console.error("Error removing like:", err);
         });
     } else {
       api
         .addCardLike(data._id)
         .then(() => {
-          cardLikeIcon.classList.add("card__like-icon_active");
+          cardLikeIcon.classList.toggle("card__like-icon_active");
         })
         .catch((err) => {
-          cardLikeIcon.classList.add("card__like-icon_active");
           console.error("Error adding like:", err);
         });
     }
-  });
-
-  cardLikeIcon.addEventListener("click", () => {
-    cardLikeIcon.classList.toggle("card__like-icon_active");
   });
 
   deleteButton.addEventListener("click", () => {

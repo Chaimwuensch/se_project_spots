@@ -119,13 +119,12 @@
   transform: scale(1);
 }
 .card-riddance__container {
-  background-color: #fff;
-  padding: 46px 50px;
-  position: relative;
   border-radius: 8px;
-  box-sizing: border-box;
-  width: 630px;
-  height: 172px;
+  position: relative;
+  padding: 32px 20px;
+  gap: 32px;
+  opacity: 1;
+  background-color: #fff;
 }
 
 .card-riddance__close {
@@ -172,10 +171,7 @@
   width: 156;
   height: 52;
   border-radius: 8px;
-  padding-top: 18px;
-  padding-right: 32px;
-  padding-bottom: 18px;
-  padding-left: 32px;
+  padding: 18px 32px;
   gap: 8px;
   background-color: #ff6565;
   border: none;
@@ -215,5 +211,25 @@
   .card__title {
     font-size: 16px;
     line-height: 16px;
+  }
+  .card-riddance__container {
+    max-width: 300px;
+    box-sizing: border-box;
+    min-height: 208px;
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .card-riddance__buttons {
+    top: 80px;
+    left: 60px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .card-riddance__text {
+    font-size: 20px;
+    text-align: center;
   }
 }
