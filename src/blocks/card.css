@@ -95,6 +95,103 @@
   margin: 0;
   font-family: "Poppins";
 }
+
+.card-riddance {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 19px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s ease;
+}
+
+.card-riddance__opened {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+}
+.card-riddance__container {
+  border-radius: 8px;
+  position: relative;
+  padding: 32px 20px;
+  gap: 32px;
+  opacity: 1;
+  background-color: #fff;
+}
+
+.card-riddance__close {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0;
+  left: calc(100% + 12px);
+  filter: none;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  background-image: url("../images/close.svg");
+  cursor: pointer;
+}
+
+.card-riddance__text {
+  width: 590;
+  height: 24;
+  justify-content: space-between;
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin: 0 auto;
+}
+
+.card-riddance__buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding-top: 32px;
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.card-riddance__delete {
+  width: 156;
+  height: 52;
+  border-radius: 8px;
+  padding: 18px 32px;
+  gap: 8px;
+  background-color: #ff6565;
+  border: none;
+  height: 52px;
+  width: 156px;
+  cursor: pointer;
+}
+
+.card-riddance__cancel {
+  border-radius: 8px;
+  padding: 18px 32px;
+  gap: 8px;
+  height: 52px;
+  width: 156px;
+  cursor: pointer;
+}
+
+.card-riddance__cancel:hover {
+  filter: invert(100%);
+}
 @media screen and (max-width: 1295px) {
   .card__image {
     height: 413px;
@@ -114,5 +211,25 @@
   .card__title {
     font-size: 16px;
     line-height: 16px;
+  }
+  .card-riddance__container {
+    max-width: 300px;
+    box-sizing: border-box;
+    min-height: 208px;
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .card-riddance__buttons {
+    top: 80px;
+    left: 60px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .card-riddance__text {
+    font-size: 20px;
+    text-align: center;
   }
 }

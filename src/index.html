@@ -4,22 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>spots</title>
-    <link type="text/css" rel="stylesheet" href="./pages/index.css" />
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img class="header__logo" src="images/Logo.svg" alt="spots logo" />
+        <img
+          class="header__logo"
+          src="<%=require('./images/Logo.svg')%>"
+          alt="spots logo"
+        />
       </header>
       <main>
         <section class="profile page__section">
           <div class="profile__info">
             <div class="profile__card">
-              <img
-                class="profile__image"
-                src="images/avatar.jpg"
-                alt="Bessie Coleman"
-              />
+              <div class="profile__image-container">
+                <img class="profile__image" src="" alt="profile image" />
+                <button
+                  class="profile__avatar-edit-btn"
+                  aria-label="Edit avatar"
+                ></button>
+              </div>
               <div class="profile__description">
                 <div class="profile__text">
                   <h1 class="profile__name">Bessie Coleman</h1>
@@ -27,7 +32,7 @@
                 </div>
                 <button type="button" class="profile__edit-button">
                   <img
-                    src="images/Group_2.svg"
+                    src="<%=require('./images/Group_2.svg')%>"
                     class="profile__edit-icon"
                     alt="edit icon"
                   />Edit Profile
@@ -37,7 +42,7 @@
             <button type="button" class="profile__post-button">
               <img
                 class="profile__post-icon"
-                src="images/Group_26.svg"
+                src="<%=require('./images/Group_26.svg')%>"
                 alt=" make new post"
               />
               New Post
@@ -68,9 +73,7 @@
                 minlength="2"
                 maxlength="40"
               />
-              <span id="name-error" class="modal__error"
-                >Please fill out this field.</span
-              >
+              <span id="name-error" class="modal__error"></span>
             </label>
             <label class="modal__label">
               Description
@@ -84,10 +87,7 @@
                 minlength="2"
                 maxlength="200"
               />
-              <span id="description-error" class="modal__error"
-                >Please lengthen this text to 2 characters or more (you are
-                currently using 1 character).</span
-              >
+              <span id="description-error" class="modal__error"></span>
             </label>
             <button class="modal__submit-btn" type="submit">Save</button>
           </form>
@@ -150,8 +150,47 @@
         </div>
       </li>
     </template>
-
-    <script defer src="scripts/script.js"></script>
-    <script defer src="scripts/validation.js"></script>
+    <div class="modal card-riddance" id="card-riddance-modal">
+      <div class="card-riddance__container">
+        <button
+          type="button"
+          class="card-riddance__close modal__close-btn"
+          src="src\images\close.svg"
+          alt="close button"
+        ></button>
+        <p class="card-riddance__text">
+          Are you sure you want to delete this image?
+        </p>
+        <div class="card-riddance__buttons">
+          <button type="button" class="card-riddance__delete" id="card-delete">
+            Delete
+          </button>
+          <button type="button" class="card-riddance__cancel" id="card-cancel">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="edit-avatar-modal">
+      <div class="modal__container">
+        <button class="modal__close-btn" type="button"></button>
+        <h2 class="modal__title">Edit Profile Avatar</h2>
+        <form name="edit-avatar" class="modal__form" novalidate>
+          <label class="modal__label">
+            Image link
+            <input
+              type="url"
+              id="avatar-link-input"
+              name="avatar"
+              class="modal__input"
+              placeholder="Enter image URL"
+              required
+            />
+            <span id="avatar-link-error" class="modal__error"></span>
+          </label>
+          <button type="submit" class="modal__submit-btn">Save</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
